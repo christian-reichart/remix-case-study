@@ -6,7 +6,7 @@ type Message = {
 }
 
 export async function getMessage(): Promise<Message | null> {
-  return prisma.message.findFirst({take: 1});
+  return prisma.message.findUnique({ where: { id: '0' } });
 }
 
 export async function upsertMessage(message: Message) {
