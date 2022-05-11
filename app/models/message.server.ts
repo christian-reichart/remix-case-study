@@ -5,8 +5,8 @@ type Message = {
   encryptedValue: string
 }
 
-export async function getMessage(): Promise<Message | null> {
-  return prisma.message.findUnique({ where: { id: '0' } });
+export async function getMessage(id: string): Promise<Message | null> {
+  return prisma.message.findUnique({ where: { id } });
 }
 
 export async function upsertMessage(message: Message) {

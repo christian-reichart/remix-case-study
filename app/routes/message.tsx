@@ -8,7 +8,7 @@ type LoaderData = {
 
 export const loader = async() => {
   return json<LoaderData>({
-    message: await getMessage(),
+    message: await getMessage('0'),
   })
 }
 
