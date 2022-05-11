@@ -1,9 +1,5 @@
+import type { Message } from "@prisma/client";
 import { prisma } from "~/db.server"
-
-type Message = {
-  id: string
-  encryptedValue: string
-}
 
 export async function getMessage(id: string): Promise<Message | null> {
   return prisma.message.findUnique({ where: { id } });
