@@ -8,7 +8,7 @@ export const action: ActionFunction =  async ({ request }) => {
   const message = formData.get("message");
 
   if (typeof message !== "string" || message.length === 0) {
-    return;
+    return null;
   }
 
   await upsertMessage({ id: '0', encryptedValue: message });
