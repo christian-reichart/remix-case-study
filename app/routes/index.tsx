@@ -1,18 +1,20 @@
 import { Form } from "@remix-run/react";
 import type { ActionFunction } from "@remix-run/server-runtime";
 import { redirect } from "@remix-run/server-runtime";
+import { AES } from "crypto-js";
 import { upsertMessage } from "~/models/message.server";
 
 export const action: ActionFunction =  async ({ request }) => {
   const formData = await request.formData();
   const message = formData.get("message");
+  const pw = formData.get("pw");
 
-  if (typeof message !== "string" || message.length === 0) {
+  if (typeof message !== "string" || message.length === 0 || typeof pw !== "string" || pw.length === 0) {
     return null;
   }
 
-  await upsertMessage({ id: '0', encryptedValue: message });
-
+  const encryptedMessage = AES.encrypt(message, pw).toString();
+  await upsertMessage({ id: '0', encryptedValue: encryptedMessage });
   return redirect("/message");
 };
 
