@@ -23,15 +23,17 @@ export const loader: LoaderFunction = async({ request }) => {
 export default function Message() {
   const decryptedValue = useLoaderData();
   return (
-    <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
+    <main className="relative sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
         {decryptedValue &&
-          <p>{decryptedValue}</p>
+          <p className="text-lg text-center font-bold bg-primary/[.1] rounded p-4 my-4">
+            {decryptedValue}
+          </p>
         }
       <Form method="get">
-          <label htmlFor="pw" className="pr-2">Password</label>
-          <input type="text" id="pw" name="pw" className="w-full rounded border border-gray-500 px-2 py-1 text-lg" /><br />
-          <button type="submit" className="rounded bg-blue-500 py-2 px-4 mt-2 text-white hover:bg-blue-600 focus:bg-blue-400 disabled:bg-blue-300">Decrypt</button>
+          <label htmlFor="pw" className="pl-4 text-sm">Password</label>
+          <input type="text" id="pw" name="pw" className="w-full rounded-full border border-gray-200 px-4 py-1 mb-2 text-lg" /><br />
+          <button type="submit" className="rounded-full bg-primary py-2 px-4 mt-2 text-white w-full">Decrypt</button>
         </Form>
       </div>
     </main>

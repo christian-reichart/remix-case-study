@@ -16,8 +16,8 @@ export default function Modal(props: ModalProps) {
                     </button>
                 </div>
                 <div className="p-6 flex justify-center items-center">
-                    <button className="rounded bg-red-500 py-2 px-4 m-2 text-white hover:bg-red-600 focus:bg-red-400 disabled:bg-red-300"  onClick={props.onClose}>Cancel</button>
-                    <button className="rounded bg-blue-500 py-2 px-4 m-2 text-white hover:bg-blue-600 focus:bg-blue-400 disabled:bg-blue-300" onClick={props.onSubmit}>Create</button>
+                    <button className="rounded-full bg-gray-500 py-2 px-8 m-2 text-white"  onClick={props.onClose}>Cancel</button>
+                    <button className="rounded-full bg-primary py-2 px-8 m-2 text-white" onClick={props.onSubmit}>Create</button>
                 </div>
             </div>
         </div>

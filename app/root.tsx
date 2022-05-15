@@ -11,6 +11,7 @@ import {
   ScrollRestoration,
   useMatches,
 } from "@remix-run/react";
+import { CustomHeader } from "./components/custom-header";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 
@@ -32,12 +33,13 @@ export default function App() {
   )
 
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full bg-light-tertiary text-secondary">
       <head>
         <Meta />
         <Links />
       </head>
       <body className="h-full">
+        <CustomHeader />
         <Outlet />
         <ScrollRestoration />
         {includeScripts && <Scripts />}

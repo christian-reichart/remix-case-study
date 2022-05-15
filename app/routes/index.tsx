@@ -25,7 +25,7 @@ export const handle = { hydrate: true };
 
 export default function Index() {
   const [showModal, setShowModal] = useState(false);
-  const inputClassName = 'w-full rounded border border-gray-500 px-2 py-1 text-lg';
+  const inputClassName = 'w-full rounded-full border border-gray-200 px-4 py-1 mb-2 text-lg';
   const formRef = useRef<HTMLFormElement>(null);
   const submit = useSubmit();
 
@@ -44,14 +44,14 @@ export default function Index() {
     setShowModal(true);
   }
   return (
-    <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
+    <main className="relative sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
         <Form ref={formRef} method="post" onSubmit={handleFormSubmit}>
-          <label htmlFor="message" className="pr-2">Message</label>
+          <label htmlFor="message" className="pl-4 text-sm">Message</label>
           <input type="text" id="message" name="message" className={inputClassName} /><br />
-          <label htmlFor="pw" className="pr-2">Password</label>
+          <label htmlFor="pw" className="pl-4 text-sm">Password</label>
           <input type="text" id="pw" name="pw" className={inputClassName} /><br />
-          <button className="rounded bg-blue-500 py-2 px-4 mt-2 text-white hover:bg-blue-600 focus:bg-blue-400 disabled:bg-blue-300">Submit</button>
+          <button className="rounded-full bg-primary py-2 px-4 mt-4 text-white w-full">Submit</button>
         </Form>
         {showModal &&
           <Modal onClose={() => onModalClose()} onSubmit={() => onModalSubmit()} />
