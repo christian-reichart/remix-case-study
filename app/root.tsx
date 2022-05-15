@@ -9,6 +9,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
 } from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
@@ -24,6 +25,12 @@ export const meta: MetaFunction = () => ({
 });
 
 export default function App() {
+  const matches = useMatches();
+
+  const includeScripts = matches.some(
+    match => match.handle?.hydrate
+  )
+
   return (
     <html lang="en" className="h-full">
       <head>
@@ -33,7 +40,7 @@ export default function App() {
       <body className="h-full">
         <Outlet />
         <ScrollRestoration />
-        <Scripts />
+        {includeScripts && <Scripts />}
         <LiveReload />
       </body>
     </html>

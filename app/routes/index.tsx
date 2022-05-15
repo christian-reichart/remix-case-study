@@ -21,6 +21,8 @@ export const action: ActionFunction =  async ({ request }) => {
   return redirect("/message");
 };
 
+export const handle = { hydrate: true };
+
 export default function Index() {
   const [showModal, setShowModal] = useState(false);
   const inputClassName = 'w-full rounded border border-gray-500 px-2 py-1 text-lg';
